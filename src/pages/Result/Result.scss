@@ -1,0 +1,129 @@
+@import "index.scss";
+
+.result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+
+    display: flex;
+    padding: 2vw 2vw;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 1000ms;
+
+    .result__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        z-index: 1001;
+
+        opacity: 0.7;
+        background-color: $black_color;
+    }
+}
+
+.result__hide {
+    z-index: -999;
+    opacity: 0;
+}
+
+.result__box {
+    opacity: 1;
+
+    width: 32vw;
+    height: 52vh;
+    z-index: 1002;
+    padding: 20px 40px;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .MuiSvgIcon-root {
+        width: 55px;
+        height: 55px;
+        color: $main_color;
+    }
+}
+
+.result__title {
+    width: 100%;
+    height: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .title__header {
+        font-size: 26px;
+        color: $black_color;
+    }
+
+    .title__info {
+        font-size: 14px;
+        color: $black_color;
+        opacity: 0.4;
+    }
+}
+
+.result__button {
+    width: 100%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    a {
+        all: unset;
+        margin-top: 10px;
+
+        button {
+            width: 100%;
+            height: 45px;
+            font-size: 16px;
+            color: $white_color;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .result__box {
+        width: 90vw;
+        height: 50vh;
+        padding: 20px 40px;
+
+        .MuiSvgIcon-root {
+            width: 55px;
+            height: 55px;
+            color: $main_color;
+        }
+    }
+
+    .result__title {
+        .title__header {
+            font-size: 20px;
+        }
+
+        .title__info {
+            font-size: 12px;
+        }
+    }
+
+    .result__button {
+        a {
+            button {
+                font-size: 14px;
+            }
+        }
+    }
+}

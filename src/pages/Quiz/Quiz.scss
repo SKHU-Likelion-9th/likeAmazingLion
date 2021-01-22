@@ -1,0 +1,312 @@
+@import "index.scss";
+
+$icon_size: 250px;
+$button_font_size: 22px;
+
+.quiz {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz__box {
+    position: relative;
+    width: 70vw;
+    height: 50vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.quiz__select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 500ms;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.select__submit {
+    align-self: flex-end;
+    position: relative;
+    width: 40%;
+    height: 80px;
+
+    margin-right: 20% !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    * {
+        font-size: $button_font_size;
+        font-weight: 900;
+    }
+}
+
+.quiz__select__showing {
+    z-index: 998;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.select__button {
+    .MuiSvgIcon-root {
+        width: $icon_size;
+        height: $icon_size;
+    }
+}
+
+.quiz__no {
+    &.MuiCheckbox-colorSecondary.Mui-checked {
+        color: red;
+    }
+
+    &.Mui-checked {
+        .MuiSvgIcon-root {
+            color: red;
+        }
+    }
+}
+
+.quiz__yes {
+    &.MuiCheckbox-colorSecondary.Mui-checked {
+        color: green;
+    }
+
+    &.Mui-checked {
+        .MuiSvgIcon-root {
+            color: green;
+        }
+    }
+}
+
+.quiz__name {
+    width: 60%;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    * {
+        font-size: $button_font_size;
+        font-weight: 900;
+    }
+
+    .name__span {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        // justify-content: space-evenly;
+
+        .MuiSvgIcon-root {
+            width: 30px;
+            height: 30px;
+            justify-items: flex-end;
+        }
+    }
+    .name__check {
+        justify-content: space-between;
+    }
+}
+
+.quiz__slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .slider__btn {
+        z-index: 999;
+        width: 140px;
+        height: 140px;
+        transition: opacity 500ms;
+
+        .MuiSvgIcon-root {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .slider__hide {
+        opacity: 0;
+    }
+}
+
+.quiz__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .progress__box {
+        width: 160px;
+        height: 60px;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .progress__element {
+            width: 14px;
+            height: 10px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+
+            transition: transform 300ms, background-color 300ms;
+        }
+
+        .progress__selected {
+            transform: scale(1.5);
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .quiz__box {
+        position: relative;
+        width: 100vw;
+        height: 80vh;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .select__button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        // margin-bottom: 10vh;
+        // transform: rotate(50deg);
+
+        .MuiSvgIcon-root {
+            width: 190px;
+            height: 190px;
+        }
+    }
+
+    .select__button {
+        .quiz__no {
+            transform: translateY(30px);
+        }
+
+        .quiz__yes {
+            transform: translateY(-30px);
+        }
+    }
+
+    .quiz__name {
+        width: 70%;
+
+        * {
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .name__span {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            // justify-content: space-evenly;
+
+            .MuiSvgIcon-root {
+                width: 30px;
+                height: 30px;
+                justify-items: flex-end;
+            }
+        }
+        .name__check {
+            justify-content: space-between;
+        }
+    }
+
+    .quiz__slider {
+        .slider__btn {
+            width: 60px;
+            height: 60px;
+
+            .MuiSvgIcon-root {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .slider__hide {
+            opacity: 0;
+        }
+    }
+
+    .select__submit {
+        margin-right: 20% !important;
+
+        * {
+            font-size: 16px;
+            font-weight: 900;
+        }
+    }
+
+    .quiz__progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+    
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    
+        .progress__box {
+            .progress__element {
+                width: 12px;
+                height: 8px;
+            }
+    
+            .progress__selected {
+                transform: scale(1.5);
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}

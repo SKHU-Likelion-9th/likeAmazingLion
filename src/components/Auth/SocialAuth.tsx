@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firebaseInstance, authService } from "components/firebaseConfig";
+import { firebaseInstance, authService } from "configs/firebaseConfig";
 import { Button } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,18 +7,22 @@ import {
     faGoogle,
     faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
-import CustomAlert from "components/CustomAlert";
+import CustomAlert from "components/Auth/CustomAlert";
 
 const SocialAuth = () => {
+    // error message state
     const [errorMsg, setErrorMsg] = useState<string>("");
 
+    // social sign in to decide there id
     const onClickSocial = async (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
+        // clicked dom
         const { parentNode } = event.target as HTMLButtonElement;
+        // clicked dom's id
         const { id } = parentNode as HTMLButtonElement;
-        let provider: any;
 
+        let provider: any;
         try {
             if (id === "google") {
                 provider = new firebaseInstance.auth.GoogleAuthProvider();

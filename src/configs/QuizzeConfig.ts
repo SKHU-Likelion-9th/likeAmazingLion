@@ -1,11 +1,8 @@
-export interface QuizInterface {
-    name: string;
-    answer: boolean;
-}
+import { QuizInterface } from "types/Types";
 
 const quizs: QuizInterface[] = [
     { name: "멋쟁이 사자처럼 1기는 서울대학교에서만 진행했다 ?", answer: true },
-    { name: "자소설닷컴은 멋쟁이 사자처럼 출신 서비스가 아니다 ?", answer: false },
+    { name: "자소설닷컴은 멋쟁이 사자처럼으로 시작했다 ?", answer: true },
     { name: "멋쟁이 사자처럼은 IT 전공자만 신청 가능하다 ?", answer: false },
     { name: "멋쟁이 사자처럼은 매년 해커톤을 진행한다 ?", answer: true },
     { name: "멋쟁이 사자처럼 활동 시기는 3월부터 12월이다 ?", answer: true },

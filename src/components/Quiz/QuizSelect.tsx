@@ -7,16 +7,8 @@ import {
     PanoramaFishEyeOutlined,
 } from "@material-ui/icons";
 
-import QuizName from "components/QuizName";
-import { QuizInterface } from "components/Quizzes";
-
-export interface QuizSelectInterface {
-    id: number;
-    isCurrent: boolean;
-    quiz?: QuizInterface;
-    answer: boolean[];
-    setAnswer?: React.Dispatch<React.SetStateAction<boolean[]>>;
-}
+import QuizName from "components/Quiz/QuizName";
+import { QuizSelectInterface } from "types/Types";
 
 const QuizSelect = ({
     id,
@@ -27,11 +19,15 @@ const QuizSelect = ({
 }: QuizSelectInterface) => {
     const [myAnswer, setMyAnswer] = useState<boolean>(true);
 
+    // Prop으로 받어오는 answer은 정답들이 모여있는 배열
+    // 체크 박스를 클릭 시 현재 선택한 것과 반대의 정보를 해당 answer state의 setStating
+    // myAnswer state는 현재 component의 값을 수정하기 위함
     const onChange = () => {
-        answer[id] = !answer[id];
-        setAnswer?.(answer);
-
-        setMyAnswer(answer[id]);
+        if (id || id === 0) {
+            answer[id] = !answer[id];
+            setAnswer?.(answer);
+            setMyAnswer(answer[id]);
+        }
     };
 
     return (
@@ -54,7 +50,7 @@ const QuizSelect = ({
                 />
             </div>
 
-            <QuizName name={quiz?.name as string} index={id}/>
+            <QuizName name={quiz?.name as string} index={id as number} />
         </div>
     );
 };
